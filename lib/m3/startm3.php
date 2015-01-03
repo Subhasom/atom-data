@@ -1,0 +1,1 @@
+<?php require_once('m3_core.php'); if(!isset($_SESSION['app_atom_signin'])){session_destroy(); echo "<script>window.parent.location.reload();</script>"; exit();} ?>

@@ -1,0 +1,76 @@
+body{margin:0;border:0;padding:0;font-family:"Arial";font-size:medium;color:#ccc;background:#fff;} a{text-decoration:none;}
+div,span,img,a{-webkit-user-select:none;-moz-user-select:none;user-select:none;cursor:default;}
+.ern{position:fixed;background:#5B9BD5;color:#fff;font-size:large;width:100%;height:100%;}.ern div{position:absolute;width:100%;top:150px;text-align:center;}.ern div p{margin:0 0 20px 0;} .ern div .h{font-size:xx-large;}.ern div p a{padding:5px 14px 5px 14px;border:solid 1px #fff;border-radius:5px;color:#fff;font-size:medium;}.ern div p a:hover{color:#5B9BD5;background:#fff;}
+
+input, select{font-family:"Arial";border-radius:5px;outline:none;padding:7px 10px;text-transform:uppercase;}
+select{text-transform:uppercase;}
+input:focus, select:focus{border-color:#5B9BD5;}
+input[type=text], input[type=date], input[type=email], input[type=password], input[type=search], select{-webkit-appearance:none; background:none;border:none;width:220px;color:#666;font-size:medium;}
+input[type=text]:focus, input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, select:focus{background:#eee;}
+input[type=button], input[type=submit]{-webkit-appearance:none; background:#5B9BD5;color:#fff;border:solid 1px #5B9BD5;padding:7px 25px;font-size:small;text-transform:uppercase; margin:0 10px 10px 0;}
+input[type=button]:focus, input[type=submit]:focus{background:#fff;color:#5B9BD5;}
+.f-l{font-size:large;}
+.f-xl{font-size:x-large;}
+.f-xxl{font-size:xx-large;color:#999;}
+
+.half{width:100%;float:none;font-size:small;}
+.fx{position:relative;}
+.fx2{float:none;}
+
+.half div{margin:20px;}
+.half p{margin:0 0 10px 0;color:#5B9BD5;}
+.fx p{line-height:25px;}
+.half p span{color:#666;}
+.half h2{font-weight:normal;font-size:x-large;color:#666;margin:30px 0 30px 0;text-transform:uppercase;}
+.half h2 span{color:#ccc;} .half h2 .dl{color:#f63;}
+.half .p{color:#666;text-transform:uppercase;}
+.half .p input[type=text], .half .p input[type=password], .half .p select{-webkit-appearance:none; border:none;border-radius:0px;font-size:small;color:#666;padding:0;padding-left:4px;text-transform:uppercase;}
+.half .p select{padding:0;height:18px;}
+.half .p select ._d{color:#ccc;}
+.half .p input[type=date]{-webkit-appearance:none; padding-left:2px;}
+.half .p input[type=date]::-webkit-inner-spin-button{-webkit-appearance:none;display:none;text-transform:uppercase;}
+.half input[type=submit], .half input[type=button]{-webkit-appearance:none; font-size:small;}
+.half input[type=button]{font-size:small;}
+.half input[type=button]:disabled{background:#ccc;border-color:#ccc;}
+
+.half table{color:#333;font-size:small;text-align:left;width:100%;}
+.half table tr td{width:80px;text-transform:uppercase;padding:3px 0 3px 0;} .half table tr .name{width:120px;}
+.half table tr td:first-child{padding:0;}
+.half table tr td a{display:block;padding:3px 0 3px 0;cursor:pointer;color:#5B9BD5;}
+.half table tr .sm{width:50px;}
+.half table tr .rtlm{text-align:right;}
+.half table tr .nodata{text-align:center;color:#ccc;font-size:large;}
+.half table tr .dth{color:#f63;}
+.half table th{text-transform:uppercase;border-bottom:solid thin #ccc;padding:3px 0 3px 0;}
+
+.proce{font-size:15px;background:#fff;color:#333;line-height:18px;}
+.b{width:100%;height:75px;}
+#stg{margin:0 25px 0 25px;} #view{line-height:25px;}
+.d{float:right;margin:-20px 30px 0 0;}
+.cap{text-transform:capitalize;} .upp{text-transform:uppercase;} .dda strong{width:150px;display:inline-block;}
+#stg input[type=text],#stg input[type=date],#stg select{-webkit-appearance:none; font-size:15px; background:none;color:#333;border:none;text-transform:uppercase;margin:0;padding:0px;}
+.num{text-align:right;}.xl{width:250px;padding-left:2px;}
+.bl{color:#ccc;font-size:medium;} .dda small{color:#999;} .bln{color:#999;}.op{display:none;}
+@media print{.np{display:none !important;}.op{display:block !important;}.half .abns{display:none;}}
+
+.cn{width:100%;} .sm{width:90%;} .show{display:block;} .hide{display:none;} .ghost{opacity:0;} .solid{opacity:1;}
+
+@media (min-width: 768px) {
+	.cn{width:750px;}
+	.sm{width:480px;}
+	.half{width:50%;float:left;}
+	.full{width:100%;float:none;}
+	.half p{margin:0 0 0 0;}
+	.fx{position:fixed;}
+	.fx2{float:right;}
+}
+@media (min-width: 992px) {
+	.cn{width:970px;}
+	.sm{width:480px;}
+	.half{font-size:medium;}
+	.half input{font-size:medium;}
+}
+@media (min-width: 1200px) {
+	.cn{width:1170px;}
+	.sm{width:480px;}
+}

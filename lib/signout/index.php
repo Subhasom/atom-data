@@ -1,0 +1,1 @@
+<?php if(!isset($_GET['auth'])){exit();} session_start(); session_destroy(); echo "<script>window.parent.location.reload();</script>"; exit(); ?>
