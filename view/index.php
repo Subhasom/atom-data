@@ -27,7 +27,7 @@ if($mode=='s'){
 if($mode=='v' || $mode=='e'){
 $q="SELECT * FROM `data` WHERE `id`='$id' AND `branch`='$branch'"; if($_SESSION['app_atom_signin_type']!='admin')$q.=" AND `s`='1'";
 $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailable</title>"; exit();} ?>
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png"><title>Data ID <?php echo $id; ?></title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView(); ddlc('<?php $ddl1=explode('.',$d['doa']); echo $ddl1[2].'-'.$ddl1[1].'-'.$ddl1[0]; ?>','<?php if($d['firdate']!=''){$ddl2=explode('.',$d['firdate']); echo $ddl2[2].'-'.$ddl2[1].'-'.$ddl2[0];} ?>');">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png"><title>Data ID <?php echo $id; ?></title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView(); ddlc('<?php $ddl1=explode('.',$d['doa']); echo $ddl1[2].'-'.$ddl1[1].'-'.$ddl1[0]; ?>','<?php if($d['firdate']!=''){$ddl2=explode('.',$d['firdate']); echo $ddl2[2].'-'.$ddl2[1].'-'.$ddl2[0];} ?>');">
 <div class="half fx">
 	<div>
     	<h2>MAC CASE NO: <?php echo $d['macno']; if($mode=='e') echo ' <span>EDITING</span>'; if($d['s']!='1') echo ' <span class="dl">DELETED</span>';?></h2>
@@ -87,7 +87,7 @@ $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailabl
 $proc=$d['proc']; if($d['proc']!=''){$proc=substr($proc,0,4)."-".substr($proc,4,2)."-".substr($proc,6,2);}
 $preproc=$d['preproc']; if($d['preproc']!=''){$preproc=substr($preproc,0,4)."-".substr($preproc,4,2)."-".substr($preproc,6,2);}
 ?>
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Process Sheet ID <?php echo $id; ?></title>
 <link rel="stylesheet" href="../ui/view.css" /><script>mra=<?php echo $d['ra']; ?>;</script><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
@@ -135,7 +135,7 @@ $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailabl
 
 ?>
 
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Print ID <?php echo $id; ?></title>
 <link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
@@ -166,7 +166,7 @@ $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailabl
 
 ?>
 
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Print 2 ID <?php echo $id; ?></title>
 <link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
@@ -221,7 +221,7 @@ if($mode=='u'){
 }
 
 ?>
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Report</title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView()">
 <div class="half fx">
 	<div>
@@ -338,7 +338,7 @@ print $xls_header.$e_col_title.$eqdata.$xls_footer; exit();
 
 
 if($_SESSION['app_atom_signin_type']!='admin'){echo "<title>Unavailable</title>"; exit();} ?>
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/atom.png">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Export</title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView()">
 <div class="half fx">
 	<div>
