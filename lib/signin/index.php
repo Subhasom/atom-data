@@ -16,7 +16,7 @@ if(isset($_GET['signin']) && $_POST){
 
 if(!isset($_SESSION['app_atom_signin'])){
 	$html='<form id="signin" target="dataViz" method="post" action="lib/signin/?auth=1&signin" onSubmit="app_signin()"><p><input type="email" name="e" placeholder="Email ID" required /></p><p><input type="password" name="p" placeholder="Password" required /></p><p>&nbsp;</p><p><input id="signinBtn" type="submit" value="Sign In" /></p></form>';
-	echo "<script>parent.document.title='".$APP_DEF."'; parent.setAppTitle('Welcome'); parent.eleHtml('nav','$html'); parent.dataLoadD();</script>";
+	echo "<script>parent.document.title='".$APP_DEF."'; parent.setAppTitle('Atom'); parent.eleHtml('nav','$html'); parent.dataLoadD();</script>";
 	exit();
 }else{echo "<script>parent.document.title='".$APP_DEF."'; parent.appLoad(true);</script>"; exit();}
 
