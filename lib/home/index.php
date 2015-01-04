@@ -5,6 +5,6 @@ $html='<div><p><input type="button" value="Access Data" onClick="opt(1)" /></p><
 if($_SESSION['app_atom_signin_type']=='admin' || $_SESSION['app_atom_signin_type']=='edit') $html.='<p><input type="button" value="Contacts" onClick="opt(2)" /></p>';
 if($_SESSION['app_atom_signin_type']=='admin') $html.='<p><input type="button" value="Manage Users" onClick="opt(3)" /></p><p><input type="button" value="Export Data" onClick="opt(5)" /></p>';
 $html.='<p><input type="button" value="Sign Out" onClick="opt(7)" /></p></div>';
-echo "<script>parent.dataLoadD(); parent.setAppTitle('Atom'); parent.eleHtml('nav','$html'); </script>"; exit();
-
+echo "<script>parent.dataLoadD(); parent.setAppTitle('Hi ".$_SESSION['app_atom_signin_name'][0]."!'); parent.eleHtml('nav','$html'); </script>"; exit();
+print($_SESSION['app_atom_signin_name']);
 ?>
