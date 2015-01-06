@@ -6,7 +6,7 @@ $auth=$_REQUEST['auth']; $s=$_REQUEST['s']; $branch=$_SESSION['app_atom_signin_b
 
 /*add*/
 if(isset($_REQUEST['add'])){
-	/*$fileno=$_POST["it_fileno"];
+	$fileno=$_POST["it_fileno"];
 	$doa=$_POST["it_doa"];
 	$macno=$_POST["it_macno"];
 	$vehicleno=$_POST["it_vehicleno"];
@@ -34,7 +34,7 @@ if(isset($_REQUEST['add'])){
 	date_default_timezone_set("Asia/Kolkata"); $ed=date('Ymd');
 	
 	if(mysql_query("INSERT INTO `data` (`id`, `fileno`, `ed`, `doa`, `macno`, `vehicleno`, `firno`, `firdate`, `firps`, `court`, `advocate`, `investigator`, `claimant`, `policyno`, `hcai`, `insadd`, `note`, `casetype`, `branch`, `lastuser`, `last`, `s`) VALUES (NULL, '$fileno', '$ed', '$doa', '$macno', '$vehicleno', '$firno', '$firdate', '$firps', '$court', '$advocate', '$investigator', '$claimant', '$policyno', '$hcai', '$insadd', '$note', '$casetype', '$branch', '$lastuser', '$last', '1');")){echo "<script>alert('Item is added by ".$_SESSION['app_atom_signin']." !');</script>";}
-	*/
+	
 }
 
 /*query*/
