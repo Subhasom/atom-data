@@ -31,11 +31,11 @@ function opt(i){
 	if(i==1){_ldgAct(60); dataLoad('data','auth=1&s'); optCl();}
 	if(i==2){alert('Sorry! This option is not available for this version.');}
 	if(i==3){alert('Sorry :( You are not authorised !');}
-	if(i==4){window.open('view/?report&0&v');}
-	if(i==5){window.open('view/?export&0&v');}
+	if(i==4){window.open('view/?report&0&v','','height=550,width=800,location=0');}
+	if(i==5){window.open('view/?export&0&v','','height=550,width=800,location=0');}
 	if(i==7){_ldgAct(90); dataLoad('signout','auth');}
 }
-function optCl(){_menuHide(true); document.getElementById('menuBtn').classList.add('sh');}
+function optCl(){_menuHide(true); document.getElementById('menuBtn').classList.add('sh'); menu_view=true;}
 function _actMenu(){if(menu_view){_menuHide(false); menu_view=false;}else{menu_view=true; _menuHide(true);}document.getElementById('menuBtn').blur();}
 /*search*/
 function startSearch(){var s=document.getElementById('srch'); var hdr=document.getElementById('hdr');if(s.value!=''){var patt=/[a-zA-Z@&%#^_<>]/g;if(!patt.test(s.value) && s.value.length<35){var res="= "+(eval(s.value)); showQsr(res,true);} else showQsr('',false);}else{showQsr('',false);}}

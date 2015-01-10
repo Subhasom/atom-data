@@ -109,8 +109,8 @@ $preproc=$d['preproc']; if($d['preproc']!=''){$preproc=substr($preproc,0,4)."-".
 <span class="op"><strong>Period of Interest:</strong> <?php if($d['preproc']) echo $d['preproc']; else echo '_______________'; ?> to <?php if($d['proc']) echo $d['proc']; else echo '_______________'; ?><br /></span>
 <strong>Amount of Award:</strong> <input id="amount" name="amount" type="text" value="<?php echo $d['amount']; ?>" class="num" onKeyUp="if(isNaN(this.value))this.value=0;" /> (Rs.)<br />
 <strong>Rate of Interest:</strong> <input id="rate" name="rate" type="text" value="<?php echo $d['rate']; ?>" class="num" onKeyUp="if(isNaN(this.value))this.value=0;" /> %<br />
-<strong>Amount of Interest:</strong> <input id="ra" name="ra" type="text" value="<?php echo $d['ra']; ?>" class="num" onKeyUp="this.value=mra;" /> (Rs.)<br />
-<strong>Total of Liability:</strong> <input id="total" name="total" type="text" value="<?php echo $d['total']; ?>" class="num" onClick="calc()" /> (Rs.)<span class="np"> Click the digit to calculate</span><br />
+<strong>Amount of Interest:</strong> <input id="ra" name="ra" type="text" value="<?php echo $d['ra']; ?>" class="num" onKeyUp="this.value=mra;" /> (Rs.)<span class="np" onClick="calc()"> Calculate</span><br />
+<strong>Total of Liability:</strong> <input id="total" name="total" type="text" value="<?php echo $d['total']; ?>" class="num" onKeyUp="chkto()" /> (Rs.)<span class="np" onClick="insnotpaid()"> Do not add Interest Amount</span><br />
 <span class="np"><br /><strong>Award through:</strong> <select name="awardtype"><option value="" class="bln">N/A</option><option value="court"<?php if($d['awardtype']=='court')echo' selected'; ?>>Court</option><option value="lokadalat"<?php if($d['awardtype']=='lokadalat')echo' selected'; ?>>Lokadalat</option></select><br />
 <strong>Case of:</strong> <select name="casetype"><option value="" class="bln">N/A</option><option value="injury"<?php if($d['casetype']=='injury')echo' selected'; ?>>Injury</option><option value="death"<?php if($d['casetype']=='death')echo' selected'; ?>>Death</option></select><br /></span>
 <br />
@@ -121,7 +121,7 @@ $preproc=$d['preproc']; if($d['preproc']!=''){$preproc=substr($preproc,0,4)."-".
 <p><strong>WHETHER SEC 64 VB COMPLIED?</strong> YES</p>
 <p><strong>Advocate opinion about liability:</strong> No merit for appeal/appeal</p>
 <p>Departmental observation:</p>
-<p><strong>Cheque to be issued in favour of:</strong><br /><br /> __________________________ Rs. <input id="favof" type="text" value="<?php echo ceil($d['total']); ?>" disabled /></p>
+<p><strong>Cheque to be issued in favour of:</strong><br /><br /> __________________________ Rs. <input id="favof" type="text" value="<?php echo ceil($d['total']); ?>" disabled /> &nbsp;</p>
 <p><strong>DATE OF AWARD:<br />CHEQUE TO BE ISSUED ON BEFORE: </strong></p>
 </div>
 <p><br />__________________________<br /><small>Recommended By</small></p>
@@ -247,8 +247,8 @@ if($mode=='u'){
 <?php if($mode=='u'){ ?>
 <div class="half fx2">
     <div>
-    	<h2>ENTRY</h2>
-        <table>
+    	<h2 id="re1">ENTRY<span class="np" onClick="rhide('e')"> <small>(hide)</small></span></h2>
+        <table id="re2">
         <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="name">INVESTIGATOR</th><th class="name">PS</th><th>CASE</th></tr><?php 
 		$r_co=1; while($r_da=mysql_fetch_array($r_proc_data_up)){ 
         $r_colcol=''; if($r_da["casetype"]=='death'){$r_colcol=' class="dth"';} $fid=$r_da['id']+$APP_AHL1;
@@ -256,8 +256,8 @@ if($mode=='u'){
         }
 		if($r_co==1){echo '<tr><td colspan="8" class="nodata"><br /><br />SORRY :( NOTHING FOUND</td></tr>';} ?></table>
         <p>&nbsp;</p>
-        <h2>PROCESSED</h2>
-        <table>
+        <h2 id="rp1">PROCESSED<span class="np" onClick="rhide('p')"> <small>(hide)</small></span></h2>
+        <table id="rp2">
         <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="rtlm sm">INTEREST</th><th class="rtlm">TOTAL</th><th>AWARD</th><th>CASE</th></tr><?php 
 		$r_co=1; while($r_da=mysql_fetch_array($r_proc_data_p)){ 
         $r_colcol=''; if($r_da["casetype"]=='death'){$r_colcol=' class="dth"';} $fid=$r_da['id']+$APP_AHL1;
