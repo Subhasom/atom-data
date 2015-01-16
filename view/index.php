@@ -27,11 +27,11 @@ if($mode=='s'){
 if($mode=='v' || $mode=='e'){
 $q="SELECT * FROM `data` WHERE `id`='$id' AND `branch`='$branch'"; if($_SESSION['app_atom_signin_type']!='admin')$q.=" AND `s`='1'";
 $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailable</title>"; exit();} ?>
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png"><title>Data ID <?php echo $id; ?></title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView(); ddlc('<?php $ddl1=explode('.',$d['doa']); echo $ddl1[2].'-'.$ddl1[1].'-'.$ddl1[0]; ?>','<?php if($d['firdate']!=''){$ddl2=explode('.',$d['firdate']); echo $ddl2[2].'-'.$ddl2[1].'-'.$ddl2[0];} ?>');">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png"><title>Data ID <?php echo $id; ?></title><link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body id="atom" onLoad="loadView();">
 <div class="half fx">
 	<div>
     	<h2>MAC CASE NO: <?php echo $d['macno']; if($mode=='e') echo ' <span>EDITING</span>'; if($d['s']!='1') echo ' <span class="dl">DELETED</span>';?></h2>
-        <p class="p">ED<?php echo $d['ed']; ?>-LA<?php echo date('Ymd.his', $d['last']); ?>-BY<?php echo $d['lastuser']; ?><br /><?php echo md5($id); ?><br /><?php if($d['proc']!='') echo 'PR'.$d['proc'].'-RS'.$d['total']; else echo 'NOT PROCESSED'; ?><br />FIR Delay <span id="ddlci">Not Available</span></p><p>&nbsp;</p>
+        <p class="p">ED<?php echo $d['ed']; ?>-LA<?php echo date('Ymd.his', $d['last']); ?>-BY<?php echo $d['lastuser']; ?><br /><?php echo md5($id); ?><br /><?php if($d['proc']!='') echo 'PR'.$d['proc'].'-RS'.$d['total']; else echo 'NOT PROCESSED'; ?><br />FIR Delay <?php if($d['firdate']!='') echo floor((strtotime($d['firdate'])-strtotime($d['doa']))/(60*60*24))." DAY(S)"; else echo "Not Available"; ?></p><p>&nbsp;</p>
         <p class="abns"><?php if($d['s']=='1') if($mode=='v'){ if($_SESSION['app_atom_signin_type']=='admin' || $_SESSION['app_atom_signin_type']=='edit') {?><input type="button" value="P 1" onClick="chMode('data',<?php echo $getv[1] ?>,'p1');" /><input type="button" value="P 2" onClick="chMode('data',<?php echo $getv[1] ?>,'p2');" /> <input type="button" value="EDIT" onClick="chMode('data',<?php echo $getv[1] ?>,'e');" /> <input type="button" value="PROC" onClick="chMode('data',<?php echo $getv[1] ?>,'p');" /> <input id="qdBtn" type="button" value="DEL" onClick="chMode('data',<?php echo $getv[1] ?>,'d');" /><?php }} ?></p>
     </div>
 </div>
@@ -140,7 +140,7 @@ $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailabl
 <link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
 <p><?php echo $APP_DEF_ADDRESS; ?></p>
-<p>Our Ref:<span class="upp"> <?php echo $d['fileno']; ?></span><br /><span class="d">Date: <?php date_default_timezone_set("Asia/Kolkata"); echo date('d M Y'); ?></span></p>
+<p>Our Ref:<span class="upp"> <?php echo $d['fileno']; ?></span><br /><span class="d">Date: <?php echo date('d M Y'); ?></span></p>
 <div contenteditable="true"><p>To,<br />Mr./Mrs./Ms.<span class="upp"> <?php echo $d['hcai']; ?><br /><?php echo $d['insadd']; ?></span></p>
 <p><strong>Sub: <u>MAC Case No:<span class="upp"> <?php echo $d['macno']; ?></span> at <span class="cap"><?php echo $d['court']; ?></span>, Accident to Vehicle No: <span class="upp"><?php echo $d['vehicleno']; ?></span> on <?php echo $d['doa']; ?> relates to PS Case NO: <?php if($d['firno']) echo $d['firno']; else echo "(NILL)"; ?> at <span class="upp"><?php if($d['firps']) echo $d['firps']; else echo "(NILL)"; ?></span></u></strong></p>
 <p><strong><span class="cap"><?php echo $d['claimant']; ?></span> vs Yourself &amp; Ourselves.</strong></p>
@@ -171,7 +171,7 @@ $d=mysql_fetch_array(mysql_query($q)); if($d['id']!=$id){echo "<title>Unavailabl
 <link rel="stylesheet" href="../ui/view.css" /><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
 <p><?php echo $APP_DEF_ADDRESS; ?></p>
-<p>Our Ref:<span class="upp"> <?php echo $d['fileno']; ?></span><br /><span class="d">Date: <?php date_default_timezone_set("Asia/Kolkata"); echo date('d M Y'); ?></span></p>
+<p>Our Ref:<span class="upp"> <?php echo $d['fileno']; ?></span><br /><span class="d">Date: <?php echo date('d M Y'); ?></span></p>
 <div contenteditable="true"><p>To,<br />Mr./Mrs./Ms.<span class="upp"> <?php echo $d['investigator']; ?><br /><?php echo $d['court']; ?></span></p>
 <p><strong>Sub: <u>MAC Case No:<span class="upp"> <?php echo $d['macno']; ?></span> at <span class="cap"><?php echo $d['court']; ?></span>, Accident to Vehicle No: <span class="upp"><?php echo $d['vehicleno']; ?></span> on <?php echo $d['doa']; ?> relates to PS Case NO: <?php if($d['firno']) echo $d['firno']; else echo "(NILL)"; ?> at <span class="upp"><?php if($d['firps']) echo $d['firps']; else echo "(NILL)"; ?></span></u></strong></p>
 <p><strong><span class="cap"><?php echo $d['claimant']; ?></span> vs Ourselves.</strong></p>
@@ -205,7 +205,7 @@ if($mode=='u'){
 	$r_proc_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `proc`!='' AND (`proc` BETWEEN $r_d AND $r_d2) AND `branch`='$branch' AND `s`='1'"));
 	
 	$r_ob=$_POST['rob']; if($r_ob!='default'){$r_ob=" ORDER BY `$r_ob` DESC";}else{$r_ob=" ORDER BY `ed` DESC";}
-	$r_proc_data_up=mysql_query("SELECT `id`,`fileno`,`macno`,`investigator`,`firps`,`advocate`,`casetype` FROM `data` WHERE `proc`='' AND (`ed` BETWEEN $r_d AND $r_d2) AND `branch`='$branch' AND `s`='1' ORDER BY `ed` DESC");
+	$r_proc_data_up=mysql_query("SELECT `id`,`fileno`,`doa`,`macno`,`investigator`,`firdate`,`firps`,`advocate`,`casetype` FROM `data` WHERE `proc`='' AND (`ed` BETWEEN $r_d AND $r_d2) AND `branch`='$branch' AND `s`='1' ORDER BY `ed` DESC");
 	$r_proc_data_p=mysql_query("SELECT `id`,`fileno`,`macno`,`ra`,`total`,`advocate`,`awardtype`,`casetype` FROM `data` WHERE `proc`!='' AND (`proc` BETWEEN $r_d AND $r_d2) AND `branch`='$branch' AND `s`='1'$r_ob");
 	
 	$r_entry_now=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `branch`='$branch' AND `s`='1'"));
@@ -213,10 +213,12 @@ if($mode=='u'){
 	
 	$r_paid_am=mysql_fetch_array(mysql_query("SELECT SUM(`total`) FROM `data` WHERE `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
 	$r_paid_ra=mysql_fetch_array(mysql_query("SELECT SUM(`ra`) FROM `data` WHERE `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
-	$r_caward_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `awardtype`='court' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
-	$r_laward_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `awardtype`='lokadalat' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
 	$r_injury_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `casetype`='injury' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
 	$r_death_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `casetype`='death' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
+	$r_caward_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `awardtype`='court' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
+	$r_laward_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `awardtype`='lokadalat' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
+	$r_naaward_no=mysql_num_rows(mysql_query("SELECT `id` FROM `data` WHERE `awardtype`='' AND `proc` BETWEEN $r_d AND $r_d2 AND `branch`='$branch' AND `s`='1'"));
+	
 	}else{echo "<title>Unavailable</title>"; exit();}
 }
 
@@ -236,10 +238,11 @@ if($mode=='u'){
             PROCESSED: <span><?php echo $r_proc_no; ?></span></br />
             PAID AMOUNT:<span> <?php echo number_format((float)$r_paid_am[0], 2, '.', ''); ?></span> (Rs.)</br />
             AMOUNT OF INTEREST: <span><?php echo number_format((float)$r_paid_ra[0], 2, '.', ''); ?></span> (Rs.)</br />
-            COURT: <span><?php echo $r_caward_no; ?></span></br />
-            LOKADALAT: <span><?php echo $r_laward_no; ?></span></br />
             INJURY: <span><?php echo $r_injury_no; ?></span></br />
             DEATH: <span><?php echo $r_death_no; ?></span></br /><br />
+            COURT: <span><?php echo $r_caward_no; ?></span></br />
+            LOKADALAT: <span><?php echo $r_laward_no; ?></span></br />
+            INTER OFFICE: <span><?php echo $r_naaward_no; ?></span></br /><br />
             TOTAL PENDING: <span><?php echo $r_entry_now-$r_proc_now; ?></span> / <?php echo $r_entry_now; ?></br />
         </p><p>&nbsp;</p><p><input type="button" value="CLEAR" onClick="chMode('report',0,'v');" /></p><?php } ?><p>&nbsp;</p>
     </div>
@@ -249,19 +252,20 @@ if($mode=='u'){
     <div>
     	<h2 id="re1">ENTRY<span class="np" onClick="rhide('e')"> <small>(hide)</small></span></h2>
         <table id="re2">
-        <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="name">INVESTIGATOR</th><th class="name">PS</th><th>CASE</th></tr><?php 
+        <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="name">INVESTIGATOR</th><th>FIR DELAY</th></tr><?php 
 		$r_co=1; while($r_da=mysql_fetch_array($r_proc_data_up)){ 
         $r_colcol=''; if($r_da["casetype"]=='death'){$r_colcol=' class="dth"';} $fid=$r_da['id']+$APP_AHL1;
-        echo '<tr><td><a href="?data&'.$fid.'&v" target="_blank">'.$r_da["id"].'</a></td><td>'.$r_da["fileno"].'</td><td>'.$r_da["macno"].'</td><td class="name">'.$r_da["advocate"].'</td><td class="name">'.$r_da["investigator"].'</td><td class="name">'.$r_da["firps"].'</td><td'.$r_colcol.'>'.$r_da["casetype"].'</td></tr>'; $r_co++;
+		if($r_da['firdate']!='') $fdelay=floor((strtotime($r_da['firdate'])-strtotime($r_da['doa']))/(60*60*24)); else $fdelay='N/A';
+        echo '<tr'.$r_colcol.'><td><a href="?data&'.$fid.'&v" target="_blank">'.$r_da["id"].'</a></td><td>'.$r_da["fileno"].'</td><td>'.$r_da["macno"].'</td><td class="name">'.$r_da["advocate"].'</td><td class="name">'.$r_da["investigator"].'</td><td>'.$r_da["firps"].' '.$fdelay.'</td></tr>'; $r_co++;
         }
 		if($r_co==1){echo '<tr><td colspan="8" class="nodata"><br /><br />SORRY :( NOTHING FOUND</td></tr>';} ?></table>
         <p>&nbsp;</p>
         <h2 id="rp1">PROCESSED<span class="np" onClick="rhide('p')"> <small>(hide)</small></span></h2>
         <table id="rp2">
-        <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="rtlm sm">INTEREST</th><th class="rtlm">TOTAL</th><th>AWARD</th><th>CASE</th></tr><?php 
+        <tr><th>ID *</th><th>FILE NO</th><th>CASE NO</th><th class="name">ADVOCATE</th><th class="rtlm sm">INTEREST</th><th class="rtlm">TOTAL</th><th>AWARD</th></tr><?php 
 		$r_co=1; while($r_da=mysql_fetch_array($r_proc_data_p)){ 
         $r_colcol=''; if($r_da["casetype"]=='death'){$r_colcol=' class="dth"';} $fid=$r_da['id']+$APP_AHL1;
-        echo '<tr><td><a href="?data&'.$fid.'&v" target="_blank">'.$r_da["id"].'</a></td><td>'.$r_da["fileno"].'</td><td>'.$r_da["macno"].'</td><td class="name">'.$r_da["advocate"].'</td><td class="rtlm sm">'.$r_da["ra"].'</td><td class="rtlm">'.$r_da["total"].'</td><td>'.$r_da["awardtype"].'</td><td'.$r_colcol.'>'.$r_da["casetype"].'</td></tr>'; $r_co++;
+        echo '<tr'.$r_colcol.'><td><a href="?data&'.$fid.'&v" target="_blank">'.$r_da["id"].'</a></td><td>'.$r_da["fileno"].'</td><td>'.$r_da["macno"].'</td><td class="name">'.$r_da["advocate"].'</td><td class="rtlm sm">'.$r_da["ra"].'</td><td class="rtlm">'.$r_da["total"].'</td><td>'.$r_da["awardtype"].'</td></tr>'; $r_co++;
         }
 		if($r_co==1){echo '<tr><td colspan="8" class="nodata"><br /><br />SORRY :( NOTHING FOUND</td></tr>';} ?></table>
     </div>
@@ -349,4 +353,4 @@ if($_SESSION['app_atom_signin_type']!='admin'){echo "<title>Unavailable</title>"
         </form>
     </div>
 </div>
-</body></html><?php exit();} ?>
+</body></html><?php exit();} ?><!--17012015.1400.v20.14-->

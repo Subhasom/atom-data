@@ -34,13 +34,14 @@ input[type=button]:focus, input[type=submit]:focus{background:#fff;color:#5B9BD5
 .half input[type=button]:disabled{background:#ccc;border-color:#ccc;}
 
 .half table{color:#333;font-size:small;text-align:left;width:100%;}
-.half table tr td{width:80px;text-transform:uppercase;padding:3px 0 3px 0;} .half table tr .name{width:120px;}
+.half table tr td, .half table tr th{text-overflow:ellipsis; white-space:nowrap;}
+.half table tr td{width:80px;text-transform:uppercase;padding:3px 0 3px 0;} .half table tr .name{width:130px;}
 .half table tr td:first-child{padding:0;}
 .half table tr td a{display:block;padding:3px 0 3px 0;cursor:pointer;color:#5B9BD5;}
 .half table tr .sm{width:50px;}
 .half table tr .rtlm{text-align:right;}
 .half table tr .nodata{text-align:center;color:#ccc;font-size:large;}
-.half table tr .dth{color:#f63;}
+.half table .dth td:nth-child(3){color:#f63;}
 .half table th{text-transform:uppercase;border-bottom:solid thin #ccc;padding:3px 0 3px 0;}
 
 .proce{font-size:15px;background:#fff;color:#333;line-height:18px;}

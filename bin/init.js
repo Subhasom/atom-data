@@ -31,8 +31,8 @@ function opt(i){
 	if(i==1){_ldgAct(60); dataLoad('data','auth=1&s'); optCl();}
 	if(i==2){alert('Sorry! This option is not available for this version.');}
 	if(i==3){alert('Sorry :( You are not authorised !');}
-	if(i==4){window.open('view/?report&0&v','','height=550,width=800,location=0');}
-	if(i==5){window.open('view/?export&0&v','','height=550,width=800,location=0');}
+	if(i==4){window.open('view/?report&0&v','','height=550,width=760,location=0');}
+	if(i==5){window.open('view/?export&0&v','','height=550,width=760,location=0');}
 	if(i==7){_ldgAct(90); dataLoad('signout','auth');}
 }
 function optCl(){_menuHide(true); document.getElementById('menuBtn').classList.add('sh'); menu_view=true;}
@@ -42,7 +42,7 @@ function startSearch(){var s=document.getElementById('srch'); var hdr=document.g
 function blurSearch(t){if(document.getElementById('srch').value=='' || t){showQsr('',false); if(pastSearch!=''){pastSearch=''; _ldgAct(60); document.getElementById('srch').blur(); dataLoad('data','auth=2&s');}} if(t){document.getElementById('srch').value=''; document.getElementById('clrBtn').blur();}}
 function submitSearch(){pastSearch=document.getElementById('srch').value; _ldgAct(60); document.getElementById('srch').blur();}
 function showQsr(v,s){if(s){document.getElementById('qSrchRes').innerHTML=v; document.getElementById('hdr').classList.add('sact'); document.getElementById('tda').classList.add('sact2');}else{document.getElementById('qSrchRes').innerHTML=''; document.getElementById('hdr').classList.remove('sact'); document.getElementById('tda').classList.remove('sact2');}}
-function viwItem(id){window.open('view/?'+app_cs+'&'+id+'&v','','height=550,width=700,location=0');}
+function viwItem(id){window.open('view/?'+app_cs+'&'+id+'&v','','height=580,width=1024,location=0');}
 /*adding item*/
 function addNewTgl(){var b=document.getElementById('addNewBtn'); if(b.value!='- CANCEL'){if(document.getElementById('des').innerHTML==''){b.value='...'; _ldgAct(60); dataLoad('data','auth=3&s');}else addNewTglDone();}else{b.value='+ ADD'; document.getElementById('des').classList.add('des'); b.blur();}}
 function addNewTglDone(){document.getElementById('des').classList.remove('des'); window.scrollTo(0,0); document.getElementById('addNewBtn').value='- CANCEL';}

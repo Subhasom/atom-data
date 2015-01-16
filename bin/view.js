@@ -5,7 +5,6 @@ function chMode(s,id,m){
 	else window.location=u+'&'+m;
 }
 function loadView(){if(usrNavMode && usrNavMode2)return true; else{document.getElementById('atom').innerHTML='<div class="ern"><div><p class="h">Sorry :(<p><p>App does not support your browser!</p><p><a href="https://www.google.com/chrome/browser/">try Google Chrome</a></p></div></div>'; document.title='Sorry :('; return false;}}
-function ddlc(sd,ed){if(sd!='' && ed!='')document.getElementById('ddlci').innerHTML=daydiff(parseDate(sd), parseDate(ed))+' day(s)';else document.getElementById('ddlci').innerHTML='Not Available';}
 function calc(){var ca=document.getElementById('amount').value;var ci=document.getElementById('rate').value;var sd=document.getElementById('sdate').value;var ed=document.getElementById('edate').value;var dy=daydiff(parseDate(sd), parseDate(ed));ci=(ci/365)*dy;
 var ramo=parseFloat(ca*ci/100); var total=ramo+parseFloat(ca);
 mra=Math.round(ramo*100)/100;
