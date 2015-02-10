@@ -43,7 +43,7 @@ function blurSearch(t){if(document.getElementById('srch').value=='' || t){showQs
 function submitSearch(){pastSearch=document.getElementById('srch').value; _ldgAct(60); document.getElementById('srch').blur();}
 function showQsr(v,s){if(s){document.getElementById('qSrchRes').innerHTML=v; document.getElementById('hdr').classList.add('sact'); document.getElementById('tda').classList.add('sact2');}else{document.getElementById('qSrchRes').innerHTML=''; document.getElementById('hdr').classList.remove('sact'); document.getElementById('tda').classList.remove('sact2');}}
 function viwItem(id){window.open('view/?'+app_cs+'&'+id+'&v','','height=580,width=1024,location=0');}
-function sqsrch(e){e=document.getElementById(e).value.trim();if(e!=''){document.getElementById('srch').value=e; document.getElementById('userSearch').submit(); submitSearch();}}
+function sqsrch(e){if(e==1){e='it_vehicleno';} e=document.getElementById(e).value.trim(); if(e!=''){document.getElementById('srch').value=e; document.getElementById('userSearch').submit(); submitSearch();}}
 /*adding item*/
 function addNewTgl(){var b=document.getElementById('addNewBtn'); if(b.value!='- CANCEL'){if(document.getElementById('des').innerHTML==''){b.value='...'; _ldgAct(60); dataLoad('data','auth=3&s');}else addNewTglDone();}else{b.value='+ ADD'; document.getElementById('des').classList.add('des'); b.blur();}}
 function addNewTglDone(){document.getElementById('des').classList.remove('des'); window.scrollTo(0,0); document.getElementById('addNewBtn').value='- CANCEL';}
