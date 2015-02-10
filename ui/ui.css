@@ -68,6 +68,7 @@ input[type=button]:focus, input[type=submit]:focus{background:#fff; color:#5B9BD
 #sta .tabData #des .half .p input[type=date]{padding-left:2px;}
 #sta .tabData #des .half .p input[type=date]::-webkit-inner-spin-button{-webkit-appearance:none; display:none; text-transform:uppercase;}
 #sta .tabData #des .half .p input[type=submit]{font-size:small;}
+#sta .tabData #des .half .p .sq{cursor:pointer;}
 
 .cn{width:100%;} .sm{width:100%;} .show{display:block;} .hide{display:none;} .ghost{opacity:0;} .solid{opacity:1;}
 @media (min-width: 768px) {
