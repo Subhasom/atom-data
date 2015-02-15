@@ -90,7 +90,7 @@ if($auth==3){/*load entry form*/
 	$ext_script=" parent.addNewTglDone();";
 }
 if($auth==4){/*add new quick data*/
-	$typl=ltrim($_GET['type'],'it_');
+	$typl=ltrim($_GET['type'],'it_'); if($typl=='nvestigator') $typl='investigator';
 	$vvl=strtoupper($_GET['v']);
 	mysql_query("INSERT INTO `terms` (`id`, `type`, `value_1`, `s`) VALUES (NULL, '$typl', '$vvl', '1');");
 	
