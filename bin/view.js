@@ -10,7 +10,7 @@ var ramo=parseFloat(ca*ci/100); var total=ramo+parseFloat(ca);
 mra=Math.round(ramo*100)/100;
 total=Math.round(total*100)/100;
 if(isNaN(total)) total=0;document.getElementById('ddval').innerHTML=dy+' days';
-document.getElementById('total').value=total;document.getElementById('ra').value=mra;document.getElementById('favof').value=Math.ceil(total);}
+document.getElementById('total').value=total;document.getElementById('ra').value=mra;document.getElementById('favof').value=Math.ceil(total); document.getElementById('nttx').innerHTML=ntt(Math.ceil(total));}
 function procCon(){var c=confirm('Are you sure that you want to UPDATE this item? You can press CTRL+P to PRINT WIHOUT UPDATE !'); if(c) return true; else return false;}
-function chkto(){document.getElementById('favof').value=document.getElementById('total').value;} function insnotpaid(){document.getElementById('total').value=document.getElementById('amount').value; chkto();} function parseDate(str){var mdy = str.split('-'); return new Date(mdy[0]-1, mdy[1], mdy[2]);}
+function chkto(){document.getElementById('favof').value=document.getElementById('total').value;document.getElementById('nttx').innerHTML=ntt(document.getElementById('total').value);} function insnotpaid(){document.getElementById('total').value=document.getElementById('amount').value; chkto();} function parseDate(str){var mdy = str.split('-'); return new Date(mdy[0]-1, mdy[1], mdy[2]);}
 function daydiff(f,s){return (s-f)/(1000*60*60*24);} function rhide(i){document.getElementById("r"+i+"1").style.display=document.getElementById("r"+i+"2").style.display='none';}
