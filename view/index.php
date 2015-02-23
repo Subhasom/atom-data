@@ -89,7 +89,7 @@ $preproc=$d['preproc']; if($d['preproc']!=''){$preproc=substr($preproc,0,4)."-".
 ?>
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1.0, user-scalable=no"><link rel="shortcut icon" href="../ui/favapp.png">
 <title>Process Sheet ID <?php echo $id; ?></title>
-<link rel="stylesheet" href="../ui/view.css" /><script>mra=<?php echo $d['ra']; ?>;</script><script src="../bin/view.js"></script></head><body class="proce">
+<link rel="stylesheet" href="../ui/view.css" /><script>mra=<?php echo $d['ra']; ?>;</script><script src="../bin/ntt.js"></script><script src="../bin/view.js"></script></head><body class="proce">
 <div id="stg"><div class="b"><?php include_once('../ui/header.png'); ?></div>
 <p><?php echo $APP_DEF_ADDRESS; ?></p>
 <p><br /><strong><u>CLAIM PROCESSING SHEET</u></strong></p>
@@ -121,7 +121,7 @@ $preproc=$d['preproc']; if($d['preproc']!=''){$preproc=substr($preproc,0,4)."-".
 <p><strong>WHETHER SEC 64 VB COMPLIED?</strong> YES</p>
 <p><strong>Advocate opinion about liability:</strong> No merit for appeal/appeal</p>
 <p>Departmental observation:</p>
-<p><strong>Cheque to be issued in favour of:</strong><br /><br /> __________________________ Rs. <input id="favof" type="text" value="<?php echo ceil($d['total']); ?>" disabled /> &nbsp;</p>
+<p><strong>Cheque to be issued in favour of:</strong><br /><br /> <span id="nttx"></span><br /> Rs. <input id="favof" type="text" value="<?php echo ceil($d['total']); ?>" disabled /> &nbsp;</p>
 <p><strong>DATE OF AWARD:<br />CHEQUE TO BE ISSUED ON BEFORE: </strong></p>
 </div>
 <p><br />__________________________<br /><small>Recommended By</small></p>
